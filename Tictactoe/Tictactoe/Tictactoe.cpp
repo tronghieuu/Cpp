@@ -4,7 +4,6 @@ using namespace std;
 int gamemode, n, turn = rand() % 2, result = 3, slot = 0;
 char **a;
 char p1[20], p2[20], record[2];
-int *check1, *check2;
 void CreateBoard()
 {
 	cout << "Enter size of board: ";
@@ -15,13 +14,6 @@ void CreateBoard()
 	for (register int i = 0; i < n; i++)
 		for (register int j = 0; j < n; j++)
 			a[i][j] = ' ';
-	check1 = new int[n + n + 2];
-	check2 = new int[n + n + 2];
-	for (register int i = 0; i < n + n + 2; i++)
-	{
-		check1[i] = 0;
-		check2[i] = 0;
-	}
 }
 void Marking()
 {
@@ -63,28 +55,7 @@ void ShowCurrentBoard()
 }
 void Check()
 {
-	if (!turn)
-	{
-		for (register int i = 0; i < n + n + 2; i++)
-		{
-			if (p1[i] == n)
-			{
-				result = 0;
-				break;
-			}
-		}
-	}
-	else
-	{
-		for (register int i = 0; i < n + n + 2; i++)
-		{
-			if (p2[i] == n)
-			{
-				result = 1;
-				break;
-			}
-		}
-	}
+	
 }
 void Playing()
 {
@@ -98,7 +69,6 @@ void Playing()
 		cin.ignore();
 		cin >> record;
 		Marking();
-		Check();
 	}
 }
 void Game()
