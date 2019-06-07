@@ -19,6 +19,7 @@ void Marking()
 {
 	register int i = record[0] - 48;
 	register int j = record[1] - 48;
+	if (a[i - 1][j - 1] == 'X' || a[i - 1][j - 1] == 'O') return;
 	if (turn)
 	{
 		a[i - 1][j - 1] = 'X';
