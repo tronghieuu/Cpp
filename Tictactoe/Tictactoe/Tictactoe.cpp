@@ -1,5 +1,5 @@
 #include <iostream>
-#include <string>
+#include <string> //just using for draw game table, playername use char array
 using namespace std;
 int gamemode, n, turn , result = 3, nmove = 0;
 char **a;
@@ -15,6 +15,7 @@ void CreateBoard()
 		for (register int j = 0; j < n; j++)
 			a[i][j] = ' ';
 }
+
 void Marking()
 {
 	register int i = record[0] - 48;
@@ -32,6 +33,7 @@ void Marking()
 	}
 	nmove++;
 }
+
 void ShowCurrentBoard()
 {
 	string str = "";
@@ -55,6 +57,8 @@ void ShowCurrentBoard()
 	}
 	cout << str << "\n";;
 }
+
+//Checking condition for ending match
 bool Check()
 {
 	bool k = true;
@@ -103,6 +107,8 @@ bool Check()
 	}
 	return true;
 }
+
+//Checking result
 bool Result()
 {
 	if (Check())
@@ -131,12 +137,16 @@ void Playing()
 		if (nmove >= 2 * n - 1 && Result()) break;
 	}
 }
+
+//Realease memory for the next match
 void DeleteArray()
 {
 	for (register int i = 0; i < n; i++)
 		delete[] a[i];
 	delete[] a;
 }
+
+//Game interface
 void Game()
 {
 	cout << "SELECT YOUR MODE (1 - PLAY GAME, OTHERS - EXIT GAME): ";
