@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
-int gamemode, n, turn = rand() % 2, result = 3, nmove = 0;
+int gamemode, n, turn , result = 3, nmove = 0;
 char **a;
 char p1[20], p2[20], record[2];
 void CreateBoard()
@@ -117,6 +117,7 @@ bool Result()
 }
 void Playing()
 {
+	turn = rand() % 2;
 	while (nmove < n*n)
 	{
 		system("cls");
