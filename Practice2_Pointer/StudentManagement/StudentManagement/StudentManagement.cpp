@@ -78,6 +78,36 @@ void Display()
 	}
 }
 
+void FreeMemory()
+{
+	delete[] list;
+	list = NULL;
+}
+
+void LoadFromFile()
+{
+	system("cls");
+	string content;
+	ifstream readingfile;
+	readingfile.open("Sdata.txt");
+	if (readingfile.is_open())
+	{
+		readingfile >> length;
+		FreeMemory();
+		list = new student[length + 1];
+		for (int i = 0; i < length; i++)
+		{
+			readingfile >> list[i].id;
+			readingfile.ignore();
+			getline(readingfile, list[i].name);
+			readingfile >> list[i].score;
+		}
+		Display();
+		readingfile.close();
+	}
+	else cout << "Could not open file!\n";
+}
+
 void SaveToFile()
 {
 	system("cls");
@@ -96,12 +126,6 @@ void SaveToFile()
 		cout << "The data has been saved!";
 	}
 	else cout << "Could not open file!";
-}
-
-void FreeMemory()
-{
-	delete[] list;
-	list = NULL;
 }
 
 void Menu()
@@ -130,6 +154,8 @@ void Menu()
 		system("pause");
 		break;
 	case 4:
+		LoadFromFile();
+		system("pause");
 		break;
 	case 0:
 		FreeMemory();
