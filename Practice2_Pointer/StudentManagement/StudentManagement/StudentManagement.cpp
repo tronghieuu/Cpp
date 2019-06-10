@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <fstream>
 #include <iomanip>
 using namespace std;
 
@@ -64,6 +65,7 @@ void Input()
 
 void Display()
 {
+	system("cls");
 	cout << setw(4) << "ID";
 	cout << setw(30) << "FULLNAME";
 	cout << setw(16) << "SCORE\n";
@@ -74,6 +76,32 @@ void Display()
 		cout << setw(15) << list[i].score;
 		cout << "\n";
 	}
+}
+
+void SaveToFile()
+{
+	system("cls");
+	ofstream savingfile;
+	savingfile.open("Sdata.txt");
+	if (savingfile.is_open())
+	{
+		savingfile << to_string(length) << "\n";
+		for (int i = 0; i < length; i++)
+		{
+			savingfile << to_string(list[i].id) << "\n";
+			savingfile << list[i].name << "\n";
+			savingfile << to_string(list[i].score) << "\n";
+		}
+		savingfile.close();
+		cout << "The data has been saved!";
+	}
+	else cout << "Could not open file!";
+}
+
+void FreeMemory()
+{
+	delete[] list;
+	list = NULL;
 }
 
 void Menu()
@@ -98,11 +126,13 @@ void Menu()
 		system("pause");
 		break;
 	case 3:
+		SaveToFile();
+		system("pause");
 		break;
 	case 4:
 		break;
 	case 0:
-		break;
+		FreeMemory();
 	default:
 		break;
 	}
@@ -115,5 +145,4 @@ void main()
 		Menu();
 		system("cls");
 	} while (choice != 0);
-	system("pause");
 }
