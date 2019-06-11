@@ -15,9 +15,21 @@ short choice;
 student *list = new student[1];
 int length = 0;
 
-void Extend(int i)
+void Extend(int size);         //Extend size of student array
+void Add(student s);           //Add a student object into student array list
+bool CheckID(int id);          //Check student id whether be duplicated or not
+void Input();                  //Input student information and add to array
+void Display();                //Show list student in list array 
+void FreeMemory();             //Release Memory has been allocated for list array
+void LoadFile(string filename);//Load specify file with file name
+void LoadFromFile();           //Handling Load from file function in Menu
+void SaveFile(string filename);//Save into specify file with file name
+void SaveToFile();             //Handling Save to file function in Menu
+void Menu();                   //List funcitons that program provides
+
+void Extend(int size)
 {
-	student *temp = new student[length + 1 + i];
+	student *temp = new student[length + 1 + size];
 	for (int i = 0; i < length; i++)
 		temp[i] = list[i];
 	delete[] list;
@@ -155,8 +167,6 @@ void SaveFile(string filename)
 	system("pause");
 }
 
-
-
 void SaveToFile()
 {
 	short choice;
@@ -210,8 +220,6 @@ void Menu()
 		break;
 	case 0:
 		FreeMemory();
-	default:
-		break;
 	}
 }
 
