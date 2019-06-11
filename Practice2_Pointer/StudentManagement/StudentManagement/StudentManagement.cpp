@@ -26,6 +26,7 @@ void LoadFromFile();           //Handling Load from file function in Menu
 void SaveFile(string filename);//Save into specify file with file name
 void SaveToFile();             //Handling Save to file function in Menu
 void Menu();                   //List funcitons that program provides
+bool HandleWrongInput();       //Handling exception for wrong input
 
 void Extend(int size)
 {
@@ -61,20 +62,36 @@ void Input()
 	student s;
 	cout << "Input ID: ";
 	cin >> s.id;
+	if (HandleWrongInput())
+	{
+		return;
+	}
 	while (!CheckID(s.id))
 	{
 		cout << "Detected duplicated student ID, please input again: ";
 		cin >> s.id;
+		if (HandleWrongInput())
+		{
+			return;
+		}
 	}
 	cin.ignore();
 	cout << "Input name: ";
 	getline(cin, s.name);
 	cout << "Input score: ";
 	cin >> s.score;
+	if (HandleWrongInput())
+	{
+		return;
+	}
 	while (s.score < 0 || s.score > 10)
 	{
 		cout << "Score is out of range, please input again: ";
 		cin >> s.score;
+		if (HandleWrongInput())
+		{
+			return;
+		}
 	}
 	Add(s);
 }
@@ -133,9 +150,10 @@ void LoadFromFile()
 	cout << "------------------------------------------------------\n";
 	cout << "        1. Load file template.txt";
 	cout << "\n        2. Load other file";
-	cout << "\n        Others to Exit";
+	cout << "\n        Others to Exit (Only number)";
 	cout << "\nChoose: ";
 	cin >> choice;
+	HandleWrongInput();
 	switch (choice)
 	{
 	case 1:
@@ -180,9 +198,10 @@ void SaveToFile()
 	cout << "------------------------------------------------------\n";
 	cout << "        1. Save into file template.txt";
 	cout << "\n        2. Save as new file";
-	cout << "\n        Others to Exit";
+	cout << "\n        Others to Exit (Only number)";
 	cout << "\nChoose: ";
 	cin >> choice;
+	HandleWrongInput();
 	switch (choice)
 	{
 	case 1:
@@ -210,24 +229,50 @@ void Menu()
 	cout << "\n------------------------------------------------------\n";
 	cout << "Choose: ";
 	cin >> choice;
-	switch (choice)
+	if (cin.fail())
 	{
-	case 1:
-		Input();
-		break;
-	case 2:
-		Display();
+		system("cls");
+		cin.clear();
+		cin.ignore();
+		cout << "Something went wrong with your input, program will be return to Menu screen!\n";
 		system("pause");
-		break;
-	case 3:
-		SaveToFile();
-		break;
-	case 4:
-		LoadFromFile();
-		break;
-	case 0:
-		FreeMemory();
+		choice = 9; //random number for program's not finished
+		return;
 	}
+	{
+		switch (choice)
+		{
+		case 1:
+			Input();
+			break;
+		case 2:
+			Display();
+			system("pause");
+			break;
+		case 3:
+			SaveToFile();
+			break;
+		case 4:
+			LoadFromFile();
+			break;
+		case 0:
+			FreeMemory();
+		}
+	}
+}
+
+bool HandleWrongInput()
+{
+	if (cin.fail())
+	{
+		system("cls");
+		cin.clear();
+		cin.ignore();
+		cout << "Something went wrong with your input, program will be return to Menu screen!\n";
+		system("pause");
+		return true;
+	}
+	return false;
 }
 
 void main()
@@ -235,6 +280,5 @@ void main()
 	do
 	{
 		Menu();
-		system("cls");
 	} while (choice != 0);
 }
