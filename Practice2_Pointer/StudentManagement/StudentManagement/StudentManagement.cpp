@@ -84,12 +84,10 @@ void FreeMemory()
 	list = NULL;
 }
 
-void LoadFromFile()
+void LoadFile(string filename)
 {
-	system("cls");
-	string content;
 	ifstream readingfile;
-	readingfile.open("Sdata.txt");
+	readingfile.open(filename);
 	if (readingfile.is_open())
 	{
 		readingfile >> length;
@@ -105,14 +103,41 @@ void LoadFromFile()
 		Display();
 		readingfile.close();
 	}
-	else cout << "Could not open file!\n";
+	else
+	{
+		system("cls");
+		cout << "Could not open file!\n";
+	}
+	system("pause");
 }
 
-void SaveToFile()
+void LoadFromFile()
 {
-	system("cls");
+	short choice;
+	cout << "------------------------------------------------------\n";
+	cout << "        1. Load file template.txt";
+	cout << "\n        2. Load other file";
+	cout << "\n        Others to Exit";
+	cout << "\nChoose: ";
+	cin >> choice;
+	switch (choice)
+	{
+	case 1:
+		LoadFile("template.txt");
+		break;
+	case 2:
+		system("cls");
+		string filename;
+		cout << "Enter your file name: ";
+		cin >> filename;
+		LoadFile(filename);
+	}
+}
+
+void SaveFile(string filename)
+{
 	ofstream savingfile;
-	savingfile.open("Sdata.txt");
+	savingfile.open(filename);
 	if (savingfile.is_open())
 	{
 		savingfile << to_string(length) << "\n";
@@ -126,6 +151,34 @@ void SaveToFile()
 		cout << "The data has been saved!";
 	}
 	else cout << "Could not open file!";
+	cout << "\n";
+	system("pause");
+}
+
+
+
+void SaveToFile()
+{
+	short choice;
+	cout << "------------------------------------------------------\n";
+	cout << "        1. Save into file template.txt";
+	cout << "\n        2. Save as new file";
+	cout << "\n        Others to Exit";
+	cout << "\nChoose: ";
+	cin >> choice;
+	switch (choice)
+	{
+	case 1:
+		system("cls");
+		SaveFile("template.txt");
+		break;
+	case 2:
+		system("cls");
+		string filename;
+		cout << "Enter your file name: ";
+		cin >> filename;
+		SaveFile(filename);
+	}
 }
 
 void Menu()
@@ -151,11 +204,9 @@ void Menu()
 		break;
 	case 3:
 		SaveToFile();
-		system("pause");
 		break;
 	case 4:
 		LoadFromFile();
-		system("pause");
 		break;
 	case 0:
 		FreeMemory();

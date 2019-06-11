@@ -1,0 +1,13 @@
+4
+1
+Nguyen Trong Hieu
+9.900000
+2
+Le Thanh Tai
+6.900000
+3
+Nguyen Thanh Truc
+3.500000
+4
+Tran Ngoc Tung Lam
+8.500000
