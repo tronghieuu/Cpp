@@ -31,7 +31,9 @@ void Extend(int size)
 {
 	student *temp = new student[length + 1 + size];
 	for (int i = 0; i < length; i++)
+	{
 		temp[i] = list[i];
+	}
 	delete[] list;
 	list = temp;
 }
@@ -46,8 +48,10 @@ void Add(student s)
 bool CheckID(int id)
 {
 	for (int i = 0; i < length; i++)
+	{
 		if (list[i].id == id)
 			return false;
+	}
 	return true;
 }
 
@@ -162,7 +166,10 @@ void SaveFile(string filename)
 		savingfile.close();
 		cout << "The data has been saved!";
 	}
-	else cout << "Could not open file!";
+	else
+	{
+		cout << "Could not open file!";
+	}
 	cout << "\n";
 	system("pause");
 }
