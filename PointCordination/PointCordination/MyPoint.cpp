@@ -3,10 +3,7 @@
 #include <iostream>
 using namespace std;
 
-MyPoint::MyPoint() 
-{
-	cout << "Initialize MyPoint object!\n";
-}
+MyPoint::MyPoint() {}
 
 MyPoint::MyPoint(int x, int y)
 {
@@ -14,10 +11,7 @@ MyPoint::MyPoint(int x, int y)
 	this->mPosY = y;
 }
 
-MyPoint::~MyPoint()
-{
-	cout << "Destoy MyPoint object!\n";
-}
+MyPoint::~MyPoint() {}
 
 void MyPoint::Display()
 {
@@ -45,7 +39,7 @@ int MyPoint::GetY()
 	return mPosY;
 }
 
-float MyPoint::Distance(MyPoint p)
+double MyPoint::Distance(MyPoint p)
 {
 	return sqrt(pow(mPosX - p.mPosX, 2) + pow(mPosY - p.mPosY, 2));
 }
