@@ -2,7 +2,6 @@
 #define PATIENT_H
 #include <list>
 #include "Virus.h"
-
 using namespace std;
 
 class Patient
