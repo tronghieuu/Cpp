@@ -5,6 +5,7 @@
 FluVirus::FluVirus()
 {
 	DoBorn();
+	InitResistance();
 }
 
 FluVirus::~FluVirus()
@@ -49,7 +50,14 @@ void FluVirus::DoDie()
 
 void FluVirus::InitResistance()
 {
-
+	if (m_color == 0x0000ff)
+	{
+		m_resistance = rand() % 6 + 10;
+	}
+	else if (m_color == 0xff0000)
+	{
+		m_resistance = rand() % 11 + 10;
+	}
 }
 
 
