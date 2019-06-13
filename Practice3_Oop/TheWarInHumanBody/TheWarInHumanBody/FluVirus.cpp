@@ -9,14 +9,14 @@ FluVirus::FluVirus()
 
 FluVirus::~FluVirus()
 {
-
+	DoDie();
 }
 
 FluVirus::FluVirus(const FluVirus* fv)
 {
 	m_resistance = fv->m_resistance;
-	CopyDNA(v->m_dna, Length(v->m_dna));
-	m_color = v->m_color;
+	CopyDNA(fv->m_dna, Length(fv->m_dna));
+	m_color = fv->m_color;
 }
 
 void FluVirus::DoBorn()
@@ -44,7 +44,7 @@ list<Virus*> FluVirus::DoClone()
 
 void FluVirus::DoDie()
 {
-
+	delete this;
 }
 
 void FluVirus::InitResistance()
