@@ -15,7 +15,7 @@ public:
 	~Patient();
 	void InitResistance();
 	void DoStart();
-	void TakeMedicine();
+	void TakeMedicine(int medicine_resistance);
 	void DoDie();
 	int GetState();
 };

@@ -6,6 +6,7 @@
 
 Patient::Patient()
 {
+	m_state = 1;
 	InitResistance();
 	DoStart();
 }
@@ -43,9 +44,31 @@ void Patient::DoStart()
 	}
 }
 
-void Patient::TakeMedicine()
+void Patient::TakeMedicine(int medicine_resistance)
 {
-
+	list<Virus*>::iterator begin = m_virusList.begin(), end = m_virusList.end();
+	int virusresistance = 0;
+	for (list<Virus*>::iterator i = begin; i != end; i++)
+	{
+		(*i)->ReduceResistance(medicine_resistance);
+		if ((*i)->m_resistance <= 0)
+		{
+			delete (*i);
+			m_virusList.remove(*i);
+		}
+		else
+		{
+			m_virusList.splice(m_virusList.end(), (*i)->DoClone());
+		}
+	}
+	for (list<Virus*>::iterator i = m_virusList.begin(); i != m_virusList.end(); i++)
+	{
+		virusresistance += (*i)->m_resistance;
+	}
+	if (m_resistance < virusresistance)
+	{
+		m_state = 0;
+	}
 }
 
 void Patient::DoDie()
