@@ -10,7 +10,7 @@ public:
 	~FluVirus();
 	FluVirus(const FluVirus* v);
 	void DoBorn();
-	Virus* DoClone();
+	list<Virus*> DoClone();
 	void DoDie();
 	void InitResistance();
 };

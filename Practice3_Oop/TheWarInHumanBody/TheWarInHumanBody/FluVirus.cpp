@@ -34,7 +34,7 @@ void FluVirus::DoBorn()
 	}
 }
 
-Virus* FluVirus::DoClone()
+list<Virus*> FluVirus::DoClone()
 {
 
 	return nullptr;
