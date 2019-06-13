@@ -1,6 +1,5 @@
 #ifndef VIRUS_H
 #define VIRUS_H
-#include <list>
 using namespace std;
 class Virus
 {
