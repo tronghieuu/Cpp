@@ -8,7 +8,7 @@ private:
 public:
 	FluVirus();
 	~FluVirus();
-	FluVirus(const FluVirus* v);
+	FluVirus(const FluVirus* fv);
 	void DoBorn();
 	list<Virus*> DoClone();
 	void DoDie();
