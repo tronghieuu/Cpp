@@ -24,8 +24,8 @@ void FluVirus::DoBorn()
 {
 	LoadADNInformation();
 	srand(time(NULL));
-	int turn = rand() % 2;
-	if (turn)
+	int color = rand() % 2;
+	if (color)
 	{
 		m_color = 0x0000ff;//blue
 	}
