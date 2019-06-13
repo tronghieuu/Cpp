@@ -10,7 +10,7 @@ Virus::~Virus()
 
 }
 
-int Length(char *c)
+int Virus::Length(char *c)
 {
 	int count = 1;
 	while (*c != '\0')
@@ -21,16 +21,20 @@ int Length(char *c)
 	return count;
 }
 
-Virus::Virus(const Virus *v)
+void Virus::CopyDNA(char* c, int length)
 {
-	int length = Length(v->m_dna);
-	m_resistance = v->m_resistance;
 	m_dna = new char[length];
 	for (int i = 0; i < length - 1; i++)
 	{
-		m_dna[i] = v->m_dna[i];
+		m_dna[i] = c[i];
 	}
 	m_dna[length - 1] = '\0';
+}
+
+Virus::Virus(const Virus *v)
+{
+	m_resistance = v->m_resistance;
+	CopyDNA(v->m_dna, Length(v->m_dna));
 }
 
 void Virus::LoadADNInformation()

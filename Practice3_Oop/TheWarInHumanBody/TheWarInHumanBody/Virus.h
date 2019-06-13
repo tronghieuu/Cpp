@@ -16,5 +16,7 @@ public:
 	virtual Virus* DoClone() = 0;
 	virtual void DoDie() = 0;
 	virtual void InitResistance() = 0;
+	int Length(char* c);
+	void CopyDNA(char* c, int length);
 };
 #endif

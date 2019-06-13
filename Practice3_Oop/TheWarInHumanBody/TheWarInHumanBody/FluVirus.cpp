@@ -12,9 +12,11 @@ FluVirus::~FluVirus()
 
 }
 
-FluVirus::FluVirus(const Virus* v)
+FluVirus::FluVirus(const FluVirus* v)
 {
-
+	m_resistance = v->m_resistance;
+	CopyDNA(v->m_dna, Length(v->m_dna));
+	m_color = v->m_color;
 }
 
 void FluVirus::DoBorn()
@@ -32,8 +34,9 @@ void FluVirus::DoBorn()
 	}
 }
 
-Virus * FluVirus::DoClone()
+Virus* FluVirus::DoClone()
 {
+
 	return nullptr;
 }
 
