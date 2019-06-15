@@ -1,6 +1,5 @@
 #include "DengueVirus.h"
 #include <stdlib.h>
-#include <time.h>
 #include <cstring>
 #include <iostream>
 DengueVirus::DengueVirus()
@@ -24,7 +23,6 @@ DengueVirus::DengueVirus(const DengueVirus* dv)
 void DengueVirus::DoBorn()
 {
 	LoadADNInformation();
-	srand(time(NULL));
 	int protein = rand() % 3;
 	if (protein == 0)
 	{
@@ -57,7 +55,6 @@ void DengueVirus::DoDie()
 
 void DengueVirus::InitResistance()
 {
-	srand(time(NULL));
 	if (strcmp(m_protein, "NS3") == 0)
 	{
 		m_resistance = rand() % 10 + 1;
@@ -74,5 +71,6 @@ void DengueVirus::InitResistance()
 
 void DengueVirus::Display()
 {
-	cout << "Dengue virus, resistance: " << m_resistance;
+	cout << "Dengue virus (" << m_protein << ") resistance: " << m_resistance;
 }
+

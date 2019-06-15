@@ -1,6 +1,6 @@
 #include "FluVirus.h"
-#include <time.h>
 #include <stdlib.h>
+#include <string>
 #include <iostream>
 FluVirus::FluVirus()
 {
@@ -23,7 +23,6 @@ FluVirus::FluVirus(const FluVirus* fv)
 void FluVirus::DoBorn()
 {
 	LoadADNInformation();
-	srand(time(NULL));
 	int color = rand() % 2;
 	if (color)
 	{
@@ -62,7 +61,16 @@ void FluVirus::InitResistance()
 
 void FluVirus::Display()
 {
-	cout << "Flu virus, resistance: " << m_resistance;
+	string color;
+	if (m_color == 0x0000ff)
+	{
+		color = "blue";
+	}
+	else
+	{
+		color = "red";
+	}
+	cout << "Flu virus (" << color << "), resistance: " << m_resistance;
 }
 
 
