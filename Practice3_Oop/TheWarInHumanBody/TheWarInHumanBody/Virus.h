@@ -21,5 +21,6 @@ public:
 	void ReduceResistance(int medicine_resistance);
 	virtual list<Virus*> DoClone() = 0;
 	virtual void Display() = 0;
+	virtual int Getm_resistance();
 };
 #endif

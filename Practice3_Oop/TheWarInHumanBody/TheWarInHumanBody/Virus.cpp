@@ -64,3 +64,8 @@ void Virus::ReduceResistance(int medicine_resistance)
 	m_resistance -= medicine_resistance;
 }
 
+int Virus::Getm_resistance()
+{
+	return m_resistance;
+}
+
