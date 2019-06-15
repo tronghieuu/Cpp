@@ -1,9 +1,8 @@
 #ifndef PATIENT_H
 #define PATIENT_H
-#include <list>
 #include "Virus.h"
+#include <list>
 using namespace std;
-
 class Patient
 {
 private:

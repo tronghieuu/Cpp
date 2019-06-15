@@ -1,8 +1,8 @@
 #include "Patient.h"
-#include <stdlib.h>
-#include <time.h>
 #include "FluVirus.h"
 #include "DengueVirus.h"
+#include <stdlib.h>
+#include <time.h>
 
 Patient::Patient()
 {
@@ -46,7 +46,7 @@ void Patient::DoStart()
 
 void Patient::TakeMedicine(int medicine_resistance)
 {
-	list<Virus*>::iterator begin = m_virusList.begin(), end = m_virusList.end();
+	/*list<Virus*>::iterator begin = m_virusList.begin(), end = m_virusList.end();
 	int virusresistance = 0;
 	for (list<Virus*>::iterator i = begin; i != end; i++)
 	{
@@ -68,7 +68,7 @@ void Patient::TakeMedicine(int medicine_resistance)
 	if (m_resistance < virusresistance)
 	{
 		m_state = 0;
-	}
+	}*/
 }
 
 void Patient::DoDie()

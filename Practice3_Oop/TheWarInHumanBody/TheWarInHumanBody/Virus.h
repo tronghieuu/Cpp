@@ -1,7 +1,6 @@
 #ifndef VIRUS_H
 #define VIRUS_H
 #include <list>
-#include "Patient.h"
 using namespace std;
 class Virus
 {
@@ -20,6 +19,5 @@ public:
 	virtual void InitResistance() = 0;
 	int Length(char* c);
 	void CopyDNA(char* c, int length);
-	friend class Patient;
 };
 #endif
