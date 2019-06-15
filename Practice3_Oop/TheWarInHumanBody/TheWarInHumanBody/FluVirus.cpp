@@ -1,7 +1,7 @@
 #include "FluVirus.h"
 #include <time.h>
 #include <stdlib.h>
-
+#include <iostream>
 FluVirus::FluVirus()
 {
 	DoBorn();
@@ -58,6 +58,11 @@ void FluVirus::InitResistance()
 	{
 		m_resistance = rand() % 11 + 10;
 	}
+}
+
+void FluVirus::Display()
+{
+	cout << "Flu virus, resistance: " << m_resistance;
 }
 
 

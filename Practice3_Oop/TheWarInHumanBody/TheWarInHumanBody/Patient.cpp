@@ -3,7 +3,7 @@
 #include "DengueVirus.h"
 #include <stdlib.h>
 #include <time.h>
-
+#include <iostream>
 Patient::Patient()
 {
 	m_state = 1;
@@ -79,4 +79,15 @@ void Patient::DoDie()
 int Patient::GetState()
 {
 	return m_state;
+}
+
+void Patient::Display()
+{
+	int count = 1;
+	for (list<Virus*>::iterator i = m_virusList.begin(); i != m_virusList.end(); i++)
+	{
+		cout << count << ". ";
+		(*i)->Display();
+		cout << "\n";
+	}
 }

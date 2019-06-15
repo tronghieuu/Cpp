@@ -14,5 +14,6 @@ public:
 	~DengueVirus();
 	DengueVirus(const DengueVirus* dv);
 	list<Virus*> DoClone();
+	void Display();
 };
 #endif

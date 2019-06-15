@@ -14,5 +14,6 @@ public:
 	~FluVirus();
 	FluVirus(const FluVirus* fv);
 	list<Virus*> DoClone();
+	void Display();
 };
 #endif

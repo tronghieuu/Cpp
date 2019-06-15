@@ -18,5 +18,6 @@ public:
 	~Patient();
 	void TakeMedicine(int medicine_resistance);
 	int GetState();
+	void Display();
 };
 #endif

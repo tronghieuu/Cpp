@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <cstring>
-
+#include <iostream>
 DengueVirus::DengueVirus()
 {
 	DoBorn();
@@ -70,4 +70,9 @@ void DengueVirus::InitResistance()
 	{
 		m_resistance = rand() % 10 + 21;
 	}
+}
+
+void DengueVirus::Display()
+{
+	cout << "Dengue virus, resistance: " << m_resistance;
 }
