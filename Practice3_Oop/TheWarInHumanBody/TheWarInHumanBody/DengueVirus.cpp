@@ -17,7 +17,7 @@ DengueVirus::DengueVirus(const DengueVirus* dv)
 {
 	m_resistance = dv->m_resistance;
 	CopyDNA(dv->m_dna, Length(dv->m_dna));
-	m_resistance = dv->m_resistance;
+	strcpy_s(m_protein, dv->m_protein);
 }
 
 void DengueVirus::DoBorn()

@@ -44,26 +44,20 @@ void Patient::DoStart()
 
 void Patient::TakeMedicine(int medicine_resistance)
 {
-	list<Virus*>::iterator begin = m_virusList.begin(), end = m_virusList.end();
-	int virusresistance = 0;
-	for (list<Virus*>::iterator i = begin; i != end; i++)
+	list<Virus*>::iterator i = m_virusList.begin();
+	while (i != m_virusList.end())
 	{
 		(*i)->ReduceResistance(medicine_resistance);
 		if ((*i)->Getm_resistance() <= 0)
 		{
-			delete (*i);
-			m_virusList.remove(*i);
+			i = m_virusList.erase(i);
 		}
 		else
 		{
-			m_virusList.splice(m_virusList.end(), (*i)->DoClone());
+			i++;
 		}
 	}
-	for (list<Virus*>::iterator i = m_virusList.begin(); i != m_virusList.end(); i++)
-	{
-		virusresistance += (*i)->Getm_resistance();
-	}
-	if (m_resistance < virusresistance)
+	if (m_resistance < GetVirusesResistance())
 	{
 		m_state = 0;
 	}
@@ -82,12 +76,23 @@ int Patient::GetState()
 void Patient::Display()
 {
 	int count = 1;
-	cout << "\n";
+	cout << "\n-------VIRUSES LIST-------";
+	cout << "\n--------------------------\n";
 	for (list<Virus*>::iterator i = m_virusList.begin(); i != m_virusList.end(); i++)
 	{
-		cout << "-------" << count << ". ";
+		cout << "       " << count << ". ";
 		(*i)->Display();
 		cout << "\n";
 		count++;
 	}
+}
+
+int Patient::GetVirusesResistance()
+{
+	int virusresistance = 0;
+	for (list<Virus*>::iterator i = m_virusList.begin(); i != m_virusList.end(); i++)
+	{
+		virusresistance += (*i)->Getm_resistance();
+	}
+	return virusresistance;
 }

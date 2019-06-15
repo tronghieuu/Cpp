@@ -19,5 +19,6 @@ public:
 	void TakeMedicine(int medicine_resistance);
 	int GetState();
 	void Display();
+	int GetVirusesResistance();
 };
 #endif
