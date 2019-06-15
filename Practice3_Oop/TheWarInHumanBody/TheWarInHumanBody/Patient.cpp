@@ -73,7 +73,7 @@ void Patient::TakeMedicine(int medicine_resistance)
 
 void Patient::DoDie()
 {
-	delete this;
+	//delete this;
 }
 
 int Patient::GetState()

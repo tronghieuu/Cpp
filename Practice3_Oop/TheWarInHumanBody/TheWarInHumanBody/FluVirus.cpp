@@ -45,7 +45,7 @@ list<Virus*> FluVirus::DoClone()
 
 void FluVirus::DoDie()
 {
-	delete this;
+	//delete this;
 }
 
 void FluVirus::InitResistance()

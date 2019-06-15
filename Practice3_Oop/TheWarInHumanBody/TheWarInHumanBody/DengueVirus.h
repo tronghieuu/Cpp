@@ -5,13 +5,14 @@ class DengueVirus : public Virus
 {
 private:
 	char m_protein[4];
+private:
+	void DoBorn();
+	void DoDie();
+	void InitResistance();
 public:
 	DengueVirus();
 	~DengueVirus();
 	DengueVirus(const DengueVirus* dv);
-	void DoBorn();
 	list<Virus*> DoClone();
-	void DoDie();
-	void InitResistance();
 };
 #endif

@@ -9,13 +9,14 @@ private:
 	int m_resistance;
 	list<Virus*> m_virusList;
 	int m_state;
+private:
+	void DoStart();
+	void InitResistance();
+	void DoDie();
 public:
 	Patient();
 	~Patient();
-	void InitResistance();
-	void DoStart();
 	void TakeMedicine(int medicine_resistance);
-	void DoDie();
 	int GetState();
 };
 #endif
