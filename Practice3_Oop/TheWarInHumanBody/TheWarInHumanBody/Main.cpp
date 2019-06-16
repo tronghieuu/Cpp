@@ -37,7 +37,6 @@ void Interface()
 }
 void main()
 {
-	
 	cout << "\n-------THE WAR BETWEEN VIRUSES ARMY AND THE MEDICINE IN HUMAN'S BODY!-------";
 	cout << "\n----------------------------------------------------------------------------";
 	do
