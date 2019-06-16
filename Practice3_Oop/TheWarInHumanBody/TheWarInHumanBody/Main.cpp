@@ -12,17 +12,24 @@ void Interface()
 	cout << "\n----------------------------------------------------------------------------";
 	cout << "\n  Choose: ";
 	cin >> choice;
+	if (cin.fail())
+	{
+		cin.clear();
+		cin.ignore();
+		return;
+	}
 	switch (choice)
 	{
 	case 1:
 		system("cls");
 		medicine_resistance = min + (rand() % (int)(max - min + 1));
-		cout << "\n       Medicine Resistance: " << medicine_resistance;
 		cout << "\n--------------------------";
 		cout << "\n       BEFORE";
 		p->Display();
 		p->TakeMedicine(medicine_resistance);
 		cout << "--------------------------\n";
+		cout << "       Medicine Resistance: " << medicine_resistance;
+		cout << "\n--------------------------\n";
 		cout << "       AFTER";
 		p->Display();
 		system("pause");
