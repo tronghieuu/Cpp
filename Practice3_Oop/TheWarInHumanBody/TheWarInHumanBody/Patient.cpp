@@ -44,29 +44,24 @@ void Patient::DoStart()
 
 void Patient::TakeMedicine(int medicine_resistance)
 {
-	// Remove viruses are dead from m_virusList and get last element in list
-	list<Virus*>::iterator i = m_virusList.begin(), lastelement = m_virusList.begin();
+	// Remove viruses are dead from m_virusList
+	list<Virus*>::iterator i = m_virusList.begin();
 	while (i != m_virusList.end())
 	{
 		(*i)->ReduceResistance(medicine_resistance);
 		if ((*i)->Getm_resistance() <= 0)
 		{
 			i = m_virusList.erase(i);
-			lastelement = i;
 		}
 		else
 		{
-			if (next(lastelement) != m_virusList.end())
-			{
-				lastelement++;
-			}
 			i++;
 		}
 	}
-	//clone all viruses are alive from last to begin
+	//get last element in m_virusList and clone all viruses are alive from last to begin
 	if (m_virusList.begin() != m_virusList.end())
 	{
-		list<Virus*>::iterator temp;
+		list<Virus*>::iterator temp, lastelement = --m_virusList.end();
 		for (i = lastelement; i != m_virusList.begin();)
 		{
 			temp = i--;
