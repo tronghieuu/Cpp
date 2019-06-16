@@ -18,13 +18,13 @@ Patient::~Patient()
 
 void Patient::InitResistance()
 {
+	srand(time(NULL));
 	m_resistance = rand() % 8001 + 1000;
 }
 
 void Patient::DoStart()
 {
 	int virusnum, virustype;
-	srand(time(NULL));
 	virusnum = rand() % 11 + 10;
 	for (int i = 0; i < virusnum; i++)
 	{
@@ -91,7 +91,7 @@ int Patient::GetState()
 void Patient::Display()
 {
 	int count = 1;
-	cout << "\n       Body Resistance: " << m_resistance;
+	cout << "\n       Body Resistance: " << GetResistance();
 	cout << "\n       Viruses Resistance: " << GetVirusesResistance();
 	cout << "\n-------VIRUSES LIST-------";
 	cout << "\n--------------------------\n";
@@ -112,4 +112,9 @@ int Patient::GetVirusesResistance()
 		virusresistance += (*i)->Getm_resistance();
 	}
 	return virusresistance;
+}
+
+int Patient::GetResistance()
+{
+	return m_resistance;
 }

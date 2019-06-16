@@ -5,8 +5,10 @@ Patient *p = new Patient();
 
 void Interface()
 {
+	cout << "\n       Patient Resistance: " << p->GetResistance();
+	cout << "\n       Viruses Resistance: " << p->GetVirusesResistance();
 	cout << "\n       1. Take Medicine";
-	cout << "\n       2. Display viruses list and their resistance";
+	cout << "\n       2. Display viruses list";
 	cout << "\n----------------------------------------------------------------------------";
 	cout << "\n  Choose: ";
 	cin >> choice;
@@ -50,7 +52,7 @@ void main()
 	system("cls");
 	if (p->GetState() == 0)
 	{
-		cout << "\n*************HUMAN DEAD!*************\n";
+		cout << "\n*************HUMAN'S DEAD!*************\n";
 	}
 	else
 	{

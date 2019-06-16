@@ -20,5 +20,6 @@ public:
 	int GetState();
 	void Display();
 	int GetVirusesResistance();
+	int GetResistance();
 };
 #endif
