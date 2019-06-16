@@ -23,14 +23,12 @@ void Interface()
 	case 1:
 		system("cls");
 		medicine_resistance = min + (rand() % (int)(max - min + 1));
-		cout << "\n--------------------------";
-		cout << "\n       BEFORE";
 		p->Display();
 		p->TakeMedicine(medicine_resistance);
-		cout << "--------------------------\n";
+		cout << "---------------------------------\n";
 		cout << "       Medicine Resistance: " << medicine_resistance;
-		cout << "\n--------------------------\n";
-		cout << "       AFTER";
+		cout << "\n---------------------------------\n";
+		cout << "       TAKING MEDICINE ...";
 		p->Display();
 		system("pause");
 		system("cls");
@@ -65,5 +63,6 @@ void main()
 	{
 		cout << "\n*************PATIENT HAS BEEN CURED SUCCESSFULLY!*************\n";
 	}
+	delete p;
 	system("pause");
 }

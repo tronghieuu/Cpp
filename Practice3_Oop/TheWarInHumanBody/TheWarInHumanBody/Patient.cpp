@@ -51,6 +51,7 @@ void Patient::TakeMedicine(int medicine_resistance)
 		(*i)->ReduceResistance(medicine_resistance);
 		if ((*i)->Getm_resistance() <= 0)
 		{
+			delete (*i);
 			i = m_virusList.erase(i);
 		}
 		else
@@ -88,10 +89,7 @@ int Patient::GetState()
 void Patient::Display()
 {
 	int count = 1;
-	cout << "\n       Body Resistance: " << GetResistance();
-	cout << "\n       Viruses Resistance: " << GetVirusesResistance();
-	cout << "\n-------VIRUSES LIST-------";
-	cout << "\n--------------------------\n";
+	cout << "\n       -------VIRUSES LIST-------\n";
 	for (list<Virus*>::iterator i = m_virusList.begin(); i != m_virusList.end(); i++)
 	{
 		cout << "       " << count << ". ";
@@ -99,6 +97,9 @@ void Patient::Display()
 		cout << "\n";
 		count++;
 	}
+	cout << "       STATUS--------------------";
+	cout << "\n       Body Resistance: " << GetResistance();
+	cout << "\n       Viruses Resistance: " << GetVirusesResistance() << "\n";
 }
 
 int Patient::GetVirusesResistance()
