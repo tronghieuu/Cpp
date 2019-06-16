@@ -10,16 +10,16 @@ private:
 	list<Virus*> m_virusList;
 	int m_state;
 private:
-	void DoStart();
-	void InitResistance();
-	void DoDie();
+	void DoStart();                              //Init m_virusList
+	void InitResistance();                       //Init patient resistance
+	void DoDie();                                //Destroy Patient object
 public:
-	Patient();
-	~Patient();
-	void TakeMedicine(int medicine_resistance);
-	int GetState();
-	void Display();
-	int GetVirusesResistance();
-	int GetResistance();
+	Patient();                                   //Constructor
+	~Patient();                                  //Destructor
+	void TakeMedicine(int medicine_resistance);  //Reduce virus resistance, destroy or clone them depend on their resistance 
+	int GetState();                              //Return status of patient (dead or alive)
+	void Display();                              //Show list viruses are alive currently
+	int GetVirusesResistance();                  //Return sum of all viruses in current m_virusList
+	int GetResistance();                         //Return patient's resistance
 };
 #endif

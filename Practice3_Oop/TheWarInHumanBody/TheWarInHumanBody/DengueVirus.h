@@ -6,14 +6,14 @@ class DengueVirus : public Virus
 private:
 	char m_protein[4];
 private:
-	void DoBorn();
-	void DoDie();
-	void InitResistance();
+	void DoBorn();                       //Call LoadADNInformation() from base class (Virus class), init m_protein
+	void DoDie();                        //Destroy DengueVirus object
+	void InitResistance();               //Init Dengue virus's resistance
 public:
-	DengueVirus();
-	~DengueVirus();
-	DengueVirus(const DengueVirus* dv);
-	list<Virus*> DoClone();
-	void Display();
+	DengueVirus();                       //Constructor
+	~DengueVirus();                      //Destructor
+	DengueVirus(const DengueVirus* dv);  //Copy constructor
+	list<Virus*> DoClone();              //Return list<Virus*> of cloned Dengue virus
+	void Display();                      //Show status of Dengue virus (name , protein, resistance)
 };
 #endif

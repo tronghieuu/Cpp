@@ -6,14 +6,14 @@ class FluVirus :public Virus
 private:
 	int m_color;
 private:
-	void DoBorn();
-	void DoDie();
-	void InitResistance();
+	void DoBorn();                    //Call LoadADNInformantion() from base class (Virus class), init m_color
+	void DoDie();                     //Destroy FluVirus object
+	void InitResistance();            //Init Flu virus's resistance
 public:
-	FluVirus();
-	~FluVirus();
-	FluVirus(const FluVirus* fv);
-	list<Virus*> DoClone();
-	void Display();
+	FluVirus();                       //Constructor
+	~FluVirus();                      //Destructor
+	FluVirus(const FluVirus* fv);     //Copy constructor
+	list<Virus*> DoClone();           //Return a list cloned viruses
+	void Display();                   //Show status of Flu virus (name, color, resistance)
 };
 #endif

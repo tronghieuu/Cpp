@@ -52,11 +52,11 @@ void main()
 	system("cls");
 	if (p->GetState() == 0)
 	{
-		cout << "\n*************HUMAN'S DEAD!*************\n";
+		cout << "\n*************PATIENT'S DEAD!*************\n";
 	}
 	else
 	{
-		cout << "\n*************BODY HAS BEEN CURED SUCCESSFULLY!*************\n";
+		cout << "\n*************PATIENT HAS BEEN CURED SUCCESSFULLY!*************\n";
 	}
 	system("pause");
 }
