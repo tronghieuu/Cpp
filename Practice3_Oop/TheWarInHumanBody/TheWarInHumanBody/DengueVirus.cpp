@@ -71,6 +71,6 @@ void DengueVirus::InitResistance()
 
 void DengueVirus::Display()
 {
-	cout << "Dengue virus (" << m_protein << ") resistance: " << m_resistance;
+	cout << "Dengue virus (" << m_protein << "), resistance: " << m_resistance;
 }
 
