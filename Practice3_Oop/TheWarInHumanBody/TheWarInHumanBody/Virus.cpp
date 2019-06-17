@@ -7,7 +7,7 @@ Virus::Virus()
 
 Virus::~Virus()
 {
-
+	delete[] m_dna;
 }
 
 int Virus::Length(char *c)

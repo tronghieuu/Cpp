@@ -65,4 +65,4 @@ void main()
 	}
 	delete p;
 	system("pause");
-}
+}
