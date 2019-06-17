@@ -15,5 +15,6 @@ public:
 	DengueVirus(const DengueVirus* dv);  //Copy constructor
 	list<Virus*> DoClone();              //Return list<Virus*> of cloned Dengue virus
 	void Display();                      //Show status of Dengue virus (name , protein, resistance)
+	string GetProtein();                 //Just in case anyone want to get protein's data of Dengue virus
 };
 #endif

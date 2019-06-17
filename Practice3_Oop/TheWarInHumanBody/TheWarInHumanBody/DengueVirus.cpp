@@ -74,3 +74,8 @@ void DengueVirus::Display()
 	cout << "Dengue virus (" << m_protein << "), resistance: " << m_resistance;
 }
 
+string DengueVirus::GetProtein()
+{
+	return m_protein;
+}
+

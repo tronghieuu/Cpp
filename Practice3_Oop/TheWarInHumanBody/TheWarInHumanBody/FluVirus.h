@@ -15,5 +15,6 @@ public:
 	FluVirus(const FluVirus* fv);     //Copy constructor
 	list<Virus*> DoClone();           //Return a list cloned viruses
 	void Display();                   //Show status of Flu virus (name, color, resistance)
+	int GetColor();                   //Just in case anyone want to get color's value of Flu virus
 };
 #endif

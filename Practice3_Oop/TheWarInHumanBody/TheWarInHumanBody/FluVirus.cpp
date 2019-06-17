@@ -73,5 +73,10 @@ void FluVirus::Display()
 	cout << "Flu virus (" << color << "), resistance: " << m_resistance;
 }
 
+int FluVirus::GetColor()
+{
+	return m_color;
+}
+
 
 
