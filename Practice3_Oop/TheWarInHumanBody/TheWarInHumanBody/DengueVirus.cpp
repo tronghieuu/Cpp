@@ -50,7 +50,7 @@ list<Virus*> DengueVirus::DoClone()
 
 void DengueVirus::DoDie()
 {
-	//delete this;
+	//nothing to delete
 }
 
 void DengueVirus::InitResistance()
