@@ -69,3 +69,8 @@ int Virus::Getm_resistance()
 	return m_resistance;
 }
 
+string Virus::GetDNA()
+{
+	return m_dna;
+}
+

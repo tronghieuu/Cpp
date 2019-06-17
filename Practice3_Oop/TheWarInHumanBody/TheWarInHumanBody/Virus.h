@@ -22,5 +22,6 @@ public:
 	virtual list<Virus*> DoClone() = 0;                      //Need override in derived class
 	virtual void Display() = 0;                              //Need override in derived class
 	virtual int Getm_resistance();                           //Return virus resistance
+	string GetDNA();                                         //Just in case anyone want to get dna's data of virus
 };
 #endif
