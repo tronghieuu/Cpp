@@ -78,7 +78,12 @@ void Patient::TakeMedicine(int medicine_resistance)
 
 void Patient::DoDie()
 {
-	//delete this;
+	for (list<Virus*>::iterator i = m_virusList.begin(); i != m_virusList.end(); i++)
+	{
+		delete (*i);
+	}
+	m_virusList.clear();
+	m_state = 0;
 }
 
 int Patient::GetState()
